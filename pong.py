@@ -35,6 +35,8 @@ ball.shape("square")
 ball.color("gray")
 ball.penup()
 ball.goto(0,0)
+ball.dx(-0.2)
+ball.dy(-0.2)
 #Games function
 while True:
     wn.update()
