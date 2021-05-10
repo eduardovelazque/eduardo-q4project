@@ -3,12 +3,14 @@
 #
 
 import turtle
+import os
 
 wn = turtle.Screen()
 wn.title("PingPong by @Angle and Javi")
 wn.bgcolor("black")
 wn.setup(width = 800, height = 600)
 wn.tracer(0)
+
 #points
 point_1 = 0
 point_2 = 0
@@ -40,14 +42,14 @@ ball.goto(0, 0)
 ball.dx = -0.2
 ball.dy = -0.2
 
-# pen
-#pen = turtle.Turtle()
-#pen.speed(0)
-#pen.color(white)
-#pen.penup()
-#pen.hideturtle()
-#pen.goto(0,260)
-#pen.write("Player 1: 0 Player 2: 0", align = "center", font=("courier", 24, "normal")
+#pen
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0,260)
+pen.write("Player 1: 0  Player 2: 0", align = "center", font=("Courier", 24, "normal"))
 
 #p1
 ##movment
@@ -87,37 +89,46 @@ wn.onkeypress(p2_down,"Down")
 
 #Games function
 while True:
-	wn.update()
+        wn.update()
 
-	ball.setx(ball.xcor() + ball.dx)
-	ball.sety(ball.ycor() + ball.dy)
-#borders
-	if ball.ycor() > 290:
-		ball.sety(290)
-		ball.dy *= -1
+        ball.setx(ball.xcor() + ball.dx)
+        ball.sety(ball.ycor() + ball.dy)
 
-	if ball.ycor() < -290:
-		ball.sety(-290)
-		ball.dy *= -1
-
-	if ball.xcor() > 390:
-		ball.goto(0,0)
-		ball.dx *= -1
-		point_1 += 1
-
-	if ball.xcor() < -390:
-		ball.goto(0,0)
-		ball.dx *= -1
-		point_2 += 1
+        if ball.ycor() > 290:
+                ball.sety(290)
+                ball.dy *= -1
+                os.system("aplay mixkit-basketball-ball-hard-hit-2093.wav&")
 
 
-# paddel  bounce
-	if (ball.xcor() > 350 and ball.xcor() < 360) and (ball.ycor() < p2.ycor() + 50 and ball.ycor() > p2.ycor() -50):
-		ball.setx(350)
-		ball.dx *= -1
-#p2
-	if (ball.xcor() < -350 and ball.xcor() > -360) and (ball.ycor() < p1.ycor() + 50 and ball.ycor() > p1.ycor() -50):
-		ball.setx(-350)
-		ball.dx *= -1
+        if ball.ycor() < -290:
+                ball.sety(-290)
+                ball.dy *= -1
+                os.system("aplay mixkit-basketball-ball-hard-hit-2093.wav&")
+
+        if ball.xcor() > 390:
+                ball.goto(0,0)
+                ball.dx *= -1
+                point_1 += 1
+                pen.clear()
+                pen.write("Player 1: {}  Player 2: {}".format(point_1, point_2), align = "center", font=("Courier", 24, "normal"))
+
+        if ball.xcor() < -390:
+                ball.goto(0,0)
+                ball.dx *= -1
+                point_2 += 1
+                pen.clear()
+                pen.write("Player 1: {}  Player 2: {}".format(point_1, point_2), align = "center", font=("Courier", 24, "normal"))
+
+        # paddel  bounce
+        if (ball.xcor() > 350 and ball.xcor() < 360) and (ball.ycor() < p2.ycor() + 50 and ball.ycor() > p2.ycor() -50):
+                ball.setx(350)
+                ball.dx *= -1
+                os.system("aplay mixkit-basketball-ball-hard-hit-2093.wav&")
+
+        #p2
+        if (ball.xcor() < -350 and ball.xcor() > -360) and (ball.ycor() < p1.ycor() + 50 and ball.ycor() > p1.ycor() -50):
+                ball.setx(-350)
+                ball.dx *= -1
+                os.system("aplay mixkit-basketball-ball-hard-hit-2093.wav&")
 
 
