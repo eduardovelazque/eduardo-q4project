@@ -1,7 +1,3 @@
-# JAVI - Angle
-#Pong Project 
-#
-
 import turtle
 import os
 
@@ -30,6 +26,7 @@ p1.color("red")
 p1.shapesize(stretch_wid=5,stretch_len= 1)
 p1.penup()
 p1.goto(-350,0)
+
 
 # player2
 p2 = turtle.Turtle()
@@ -62,9 +59,9 @@ pen.write("Player 1: 0  Player 2: 0", align = "center", font=("Courier", 24, "no
 ##movment
 ###up
 def p1_up():
-	y = p1.ycor()
-	y += 50
-	p1.sety(y)
+        y = p1.ycor()
+        y += 50
+        p1.sety(y)
 #down
 def p1_down():
         y = p1.ycor()
@@ -81,9 +78,6 @@ def p2_down():
         y = p2.ycor()
         y -= 50
         p2.sety(y)
-
-
-
 # key mapping
 ##p1
 wn.listen()
@@ -116,15 +110,19 @@ while True:
                 ball.goto(0,0)
                 ball.dx *= -1
                 point_1 += 1
+                ball.dy + 0.1
+                ball.dx + 0.1
                 pen.clear()
-                pen.write("Player 1: {}  Player 2: {}".format(point_1, point_2), align = "center", font=("Courier", 24, "normal"))
+                pen.write("Player 1: {}  Player 2: {}".format(point_1, point>
 
         if ball.xcor() < -390:
                 ball.goto(0,0)
                 ball.dx *= -1
                 point_2 += 1
+                ball.dy + 0.1
+                ball.dx + 0.1
                 pen.clear()
-                pen.write("Player 1: {}  Player 2: {}".format(point_1, point_2), align = "center", font=("Courier", 24, "normal"))
+                pen.write("Player 1: {}  Player 2: {}".format(point_1, point>
 
         # paddel  bounce
         if (ball.xcor() > 350 and ball.xcor() < 360) and (ball.ycor() < p2.ycor() + 50 and ball.ycor() > p2.ycor() -50):
@@ -132,8 +130,9 @@ while True:
                 ball.dx *= -1
                 os.system("aplay mixkit-basketball-ball-hard-hit-2093.wav&")
 
+
         #p2
-        if (ball.xcor() < -350 and ball.xcor() > -360) and (ball.ycor() < p1.ycor() + 50 and ball.ycor() > p1.ycor() -50):
+        if (ball.xcor() < -350 and ball.xcor() > -360) and (ball.ycor() < p1>.ycor() + 50 and ball.ycor() > p1.ycor() -50):
                 ball.setx(-350)
                 ball.dx *= -1
                 os.system("aplay mixkit-basketball-ball-hard-hit-2093.wav&")
