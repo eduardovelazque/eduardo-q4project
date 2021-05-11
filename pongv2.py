@@ -116,6 +116,8 @@ while True:
                 ball.goto(0,0)
                 ball.dx *= -1
                 point_1 += 1
+                ball.dx + 0.1
+                ball.dy + 0.1
                 pen.clear()
                 pen.write("Player 1: {}  Player 2: {}".format(point_1, point_2), align = "center", font=("Courier", 24, "normal"))
 
@@ -124,6 +126,8 @@ while True:
                 ball.dx *= -1
                 point_2 += 1
                 pen.clear()
+                ball.dx + 0.1
+                ball.dy + 0.1
                 pen.write("Player 1: {}  Player 2: {}".format(point_1, point_2), align = "center", font=("Courier", 24, "normal"))
 
         # paddel  bounce
@@ -137,5 +141,4 @@ while True:
                 ball.setx(-350)
                 ball.dx *= -1
                 os.system("aplay mixkit-basketball-ball-hard-hit-2093.wav&")
-
 
