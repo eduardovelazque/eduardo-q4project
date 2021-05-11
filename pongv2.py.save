@@ -46,8 +46,8 @@ ball.shape("square")
 ball.color("gray")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 0.5
-ball.dy = 0.5
+ball.dx = -0.4
+ball.dy = -0.4
 
 #pen
 pen = turtle.Turtle()
@@ -116,8 +116,8 @@ while True:
                 ball.goto(0,0)
                 ball.dx *= -1
                 point_1 += 1
-                ball.dx += 0.1
-                ball.dy += 0.1
+                ball.dx + 0.1
+                ball.dy + 0.1
                 pen.clear()
                 pen.write("Player 1: {}  Player 2: {}".format(point_1, point_2), align = "center", font=("Courier", 24, "normal"))
 
@@ -125,20 +125,20 @@ while True:
                 ball.goto(0,0)
                 ball.dx *= -1
                 point_2 += 1
-                ball.dx += 0.1
-                ball.dy += 0.1
                 pen.clear()
-                os.system("aplay mixkit-game-quick-warning-notification-268.wav&")
+                ball.dx + 0.1
+                ball.dy + 0.1
                 pen.write("Player 1: {}  Player 2: {}".format(point_1, point_2), align = "center", font=("Courier", 24, "normal"))
 
         # paddel  bounce
         if (ball.xcor() > 350 and ball.xcor() < 360) and (ball.ycor() < p2.ycor() + 50 and ball.ycor() > p2.ycor() -50):
                 ball.setx(350)
                 ball.dx *= -1
-                os.system("aplay mixkit-basketball-ball-hard-hit-2093.wav&")
+                os.system("aplay mixkit-ba")
 
         #p2
         if (ball.xcor() < -350 and ball.xcor() > -360) and (ball.ycor() < p1.ycor() + 50 and ball.ycor() > p1.ycor() -50):
                 ball.setx(-350)
                 ball.dx *= -1
                 os.system("aplay mixkit-basketball-ball-hard-hit-2093.wav&")
+
