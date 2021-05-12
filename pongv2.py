@@ -1,6 +1,7 @@
 # JAVI - Angle
 #Pong Project 
-#
+#I pledge that this program reprents our own program code. We recived freeCodeCamp.org help in desgining and debugging our program.
+#We spent 1 week on this assigment.
 
 import turtle
 import os
